@@ -18,15 +18,6 @@ export default function Home({ allPostsData }) {
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
-      <div className={utilStyles.links}>
-        <ul>
-          <li>
-            <Link href="/posts">
-              <a>Posts</a>
-            </Link>
-          </li>
-        </ul>
-      </div>
       <section className={utilStyles.headingMd}>…</section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>

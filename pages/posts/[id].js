@@ -1,15 +1,15 @@
-import Link from "next/link";
 import Head from "next/head";
-import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import Date from './../../components/date';
-export default function Posts({postData}) {
+import Date from "./../../components/date";
+import Layout from "../../components/layout";
+
+export default function Posts({ postData }) {
   return (
     <Layout>
       <Head>
         <title>{postData.title}</title>
       </Head>
-        {postData.title}
+      {postData.title}
       <br />
       {postData.id}
       <br />

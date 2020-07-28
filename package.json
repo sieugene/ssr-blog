@@ -11,12 +11,17 @@
     "date-fns": "^2.15.0",
     "gray-matter": "^4.0.2",
     "next": "9.3.5",
+    "next-eslint": "0.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "remark": "^12.0.1",
     "remark-html": "^12.0.0"
   },
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0"
-  }
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint-config-xo": "^0.32.1"
+  },
+    "eslintConfig": {
+      "extends": "xo"
+    }
 }

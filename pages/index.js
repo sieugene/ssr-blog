@@ -3,6 +3,8 @@ import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
+import { useDispatch } from 'react-redux';
+import { setPosts } from './../ducks/post';
 
 export default function Home({ todos }) {
   return (
@@ -36,7 +38,9 @@ export default function Home({ todos }) {
 }
 
 export async function getStaticProps() {
+  //const dispatch = useDispatch()
   const data = await getSortedPostsData();
+  // await dispatch(setPosts(data))
   return {
     props: {
       todos: data,

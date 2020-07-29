@@ -1,27 +1,28 @@
 import Head from "next/head";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import Date from "./../../components/date";
 import Layout from "../../components/layout";
+import { fetch } from 'isomorphic-unfetch';
 
-export default function Posts({ postData }) {
+export default function Posts (props) {
+  if(!props.postData || props.postData === null ){
+    return 'нет данных'
+  }
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{props.postData.title}</title>
       </Head>
-      {postData.title}
+      {props.postData.title}
       <br />
-      {postData.id}
+      {props.postData.id}
       <br />
-      <Date dateString={postData.date} />
       <br />
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = await getAllPostIds();
   return {
     paths,
     fallback: false,

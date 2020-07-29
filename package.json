@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next",
     "build": "next build",
     "start": "next start",
     "debug": "node inspect --inspect .vscode/launch.json"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "date-fns": "^2.15.0",
     "gray-matter": "^4.0.2",
     "isomorphic-unfetch": "^3.0.0",

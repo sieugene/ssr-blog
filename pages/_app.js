@@ -1,12 +1,11 @@
 import "../styles/global.css";
 import { Provider } from "react-redux";
-import { useStore } from "./../redux/store";
+import { reduxStore } from "./../redux/store";
 
 export default function App({ Component, pageProps }) {
-  const store = useStore(pageProps.initialReduxState);
-
+  // const reduxStore = initStore();
   return (
-    <Provider store={store}>
+    <Provider store={reduxStore}>
       <Component {...pageProps} />
     </Provider>
   );

@@ -1,12 +1,18 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
-import { getSortedPostsData } from "../lib/posts";
+import { getSortedPostsData } from "../api/posts";
 import Link from "next/link";
-import { useDispatch } from 'react-redux';
-import { setPosts } from './../ducks/post';
+import { setPosts } from "./../ducks/post";
+import { dispatch,getReduxState } from "./../redux/store";
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function Home({ todos }) {
+  //set in store client side
+  const dispatch = useDispatch()
+  dispatch(setPosts(todos))
+  const data = useSelector(state => state)
+  //set and use state
   return (
     <Layout home>
       <Head>
@@ -37,14 +43,13 @@ export default function Home({ todos }) {
   );
 }
 
-export async function getStaticProps() {
-  //const dispatch = useDispatch()
+export async function getServerSideProps(props) {
+  //set are serverSide store [server set]
   const data = await getSortedPostsData();
-  // await dispatch(setPosts(data))
+  await dispatch(setPosts(data));
   return {
     props: {
-      todos: data,
+      todos: getReduxState().post.posts,
     },
   };
 }
-

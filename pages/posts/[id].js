@@ -1,11 +1,10 @@
 import Head from "next/head";
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { getAllPostIds, getPostData } from "../../api/posts";
 import Layout from "../../components/layout";
-import { fetch } from 'isomorphic-unfetch';
 
-export default function Posts (props) {
-  if(!props.postData || props.postData === null ){
-    return 'нет данных'
+export default function Posts(props) {
+  if (!props.postData || props.postData === null) {
+    return "нет данных";
   }
   return (
     <Layout>
